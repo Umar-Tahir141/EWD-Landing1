@@ -5,6 +5,7 @@ import hamburgerImage from "../../assets/hamburger.png";
 
 const Navbar = ({ logo, hamburger }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const sidebarRef = useRef(null);
 
   const toggleSidebar = () => setIsOpen(!isOpen);
@@ -31,9 +32,24 @@ const Navbar = ({ logo, hamburger }) => {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+  const handleScroll = () => {
+    setScrolled(window.scrollY > 50);
+  };
+
+  window.addEventListener("scroll", handleScroll);
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
+
   return (
     <>
-      <nav className="navbar">
+      <nav  className={`navbar 
+    ${scrolled ? "navbar-scrolled" : ""}
+    ${isOpen ? "navbar-hidden" : ""}
+  `}>
         <div className="logo">
           <img src={logoImage} alt="Logo" />
         </div>
@@ -60,7 +76,7 @@ const Navbar = ({ logo, hamburger }) => {
       <aside ref={sidebarRef} className={`mobile-sidebar ${isOpen ? 'open' : ''}`}>
         <div className="sidebar-header">
           <div className="logo">
-            <img src={logo} alt="Logo" />
+            <img src={logoImage} alt="Logo" />
           </div>
           <button className="close-btn" onClick={closeSidebar} aria-label="Close menu">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
