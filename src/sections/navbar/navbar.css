@@ -1,0 +1,184 @@
+/* =======================
+   DESKTOP NAVBAR (Your Original — Unchanged)
+======================= */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+   max-width: 1239px;
+  margin: 0 auto;
+  width:86.04% !important;
+}
+
+.logo img {
+  max-width: 128px;
+  width: 100%;
+  height: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links li {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.talk-btn {
+  background: #000;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 14px 24px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.menu-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-btn img {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+/* =======================
+   MOBILE SIDEBAR
+======================= */
+
+/* Hide hamburger on desktop */
+.menu-btn {
+  display: none;
+}
+
+/* Sidebar Overlay */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Mobile Sidebar */
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 320px;
+  max-width: 85vw;
+  height: 100vh;
+  background: #fff;
+  z-index: 999;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.08);
+}
+
+.mobile-sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.sidebar-header .logo img {
+  max-width: 110px;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.sidebar-links li {
+  font-size: 20px;
+  font-weight: 500;
+  padding: 14px 0;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  transition: opacity 0.2s ease;
+}
+
+.sidebar-links li:hover {
+  opacity: 0.6;
+}
+
+.sidebar-footer {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.sidebar-footer .talk-btn {
+  width: 100%;
+  padding: 16px 24px;
+  font-size: 16px;
+}
+
+/* =======================
+   MOBILE BREAKPOINT
+======================= */
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-actions .talk-btn {
+    display: none;
+  }
+
+  .menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar {
+    margin-top: 16px;
+  }
+}
