@@ -10,6 +10,14 @@
   margin: 0 auto;
 }
 
+@media(max-width:1600px) and (min-width:1380){
+  .strategy-container {
+  max-width: 1239px;
+  margin: 0 auto;
+  width:100% !important;
+}
+}
+
 .uxui-content {
   display: flex;
   flex-direction: row-reverse;
